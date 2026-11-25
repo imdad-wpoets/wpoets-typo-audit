@@ -2,7 +2,7 @@
 """
 typo_audit_app.py
 ================================================================================
-Zuci Systems — A-to-Z Website QA & Content Integrity Studio (Streamlit Web App)
+A-to-Z Website QA & Content Integrity Studio (Streamlit Web App)
 Performs complete end-to-end QA on your behalf across any single URL, batch of
 URLs, or full XML Sitemap (including nested child sitemaps):
 
@@ -2836,7 +2836,7 @@ def build_az_excel_report(
     ws1 = wb.create_sheet("Executive Summary")
     wb._sheets = [ws1, ws2, ws3]
 
-    ws1["A1"] = "Zuci Systems — A-to-Z Website QA & Character Confusion Audit Report"
+    ws1["A1"] = "A-to-Z Website QA & Character Confusion Audit Report"
     ws1["A1"].font = TITLE_FONT
     ws1["A2"] = f"Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} | Mode: {'Append / Cumulative' if append_mode else 'Fresh Scan'}"
     ws1["A2"].font = Font(name="Calibri", size=10, italic=True, color="4A5568")
@@ -2928,13 +2928,13 @@ def build_az_excel_report(
 # ==============================================================================
 def main():
     st.set_page_config(
-        page_title="Zuci Systems — A-to-Z Website QA Studio",
+        page_title="A-to-Z Website QA Studio",
         page_icon="🛡️",
         layout="wide",
     )
     ensure_playwright_browser()
 
-    st.title("🛡️ Zuci Systems — A-to-Z Website QA & Content Integrity Studio")
+    st.title("🛡️ A-to-Z Website QA & Content Integrity Studio")
     st.caption("Autonomous End-to-End QA Agent: Character Confusion Matrix · Editorial Consistency · Broken Links & Assets · SEO & Metadata")
 
     rules_df = load_rules_df()
@@ -2964,11 +2964,11 @@ def main():
             if input_mode == "Paste Single or Multiple URLs":
                 urls_raw = st.text_area(
                     "Enter URLs (one per line)",
-                    value="https://www.zucisystems.com/\nhttps://www.zucisystems.com/truzt-ai/\nhttps://www.zucisystems.com/services/digital-engineering/architecture-design-advisory/",
+                    value="",
                     height=150,
                 )
             elif input_mode.startswith("Crawl Full XML"):
-                sitemap_input = st.text_input("XML Sitemap Index URL", value="https://zucisystems.com/sitemap_index.xml")
+                sitemap_input = st.text_input("XML Sitemap Index URL", value="")
                 max_sm_urls = st.slider("Max URLs to crawl in this batch", min_value=5, max_value=250, value=30, step=5)
             else:
                 uploaded_file = st.file_uploader("Upload .csv (with 'URL' column) or .txt file", type=["csv", "txt"])
